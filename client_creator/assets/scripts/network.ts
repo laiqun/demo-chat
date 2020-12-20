@@ -71,7 +71,7 @@ export class network {
      * @param cb 
      * @param self 
      */
-    static onOpen(cb: (msg?: any) => void, self: any) {
+    static onOpen(cb: (msg?: any) => void, self: any) {   //这里是监听服务器的回调函数
         handlers[openOrClose.open] = cb.bind(self);
         bindedObj[openOrClose.open] = self;
     }
@@ -79,7 +79,7 @@ export class network {
     /**
      * 移除网络连接成功的消息监听
      */
-    static offOpen() {
+    static offOpen() {//这里是监听服务器的回调函数
         delete handlers[openOrClose.open];
         delete bindedObj[openOrClose.open];
     }
@@ -89,7 +89,7 @@ export class network {
      * @param cb 
      * @param self 
      */
-    static onClose(cb: () => void, self: any) {
+    static onClose(cb: () => void, self: any) {//这里是监听服务器的回调函数
         handlers[openOrClose.close] = cb.bind(self);
         bindedObj[openOrClose.close] = self;
     }
@@ -97,7 +97,7 @@ export class network {
     /**
      * 移除网络断开的消息监听
      */
-    static offClose() {
+    static offClose() {//这里是监听服务器的回调函数
         delete handlers[openOrClose.close];
         delete bindedObj[openOrClose.close];
     }
@@ -108,7 +108,7 @@ export class network {
      * @param cb 
      * @param self 
      */
-    static addHandler(cmd: string, cb: (msg?: any) => void, self: any) {
+    static addHandler(cmd: string, cb: (msg?: any) => void, self: any) {//这里是监听服务器的回调函数
         let cmdIndex = route.indexOf(cmd);
         if (cmdIndex === -1) {
             console.warn("cmd not exists:", cmd);
@@ -122,7 +122,7 @@ export class network {
      * 移除绑定的消息监听
      * @param self 
      */
-    static removeThisHandlers(self: any) {
+    static removeThisHandlers(self: any) {//这里是监听服务器的回调函数
         for (let index in bindedObj) {
             if (bindedObj[index] === self) {
                 delete bindedObj[index];
