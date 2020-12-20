@@ -204,7 +204,7 @@ function handleMsg(data) {
 }
 
 function handshakeOver(msg) {
-    route = msg.route;
+    route = msg.route;//这里会获取支持的route，然后本地其实也有一份，在cmdClient.ts文件中定义
     if (msg.heartbeat > 0) {
         heartbeatTimer = setInterval(sendHeartbeat, msg.heartbeat * 1000);
     }
