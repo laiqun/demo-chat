@@ -69,7 +69,7 @@ export default class NewClass extends cc.Component {
         let msg = {
             "roomName": this.roomNameEdit.string,
             "nickname": this.nicknameEdit.string,
-            "headId": headId,
+            "headId": headId,  //这个表示两个头像中，选择的是哪个
         }
         network.sendMsg(cmd.connector_main_enterRoom, msg);
     }
