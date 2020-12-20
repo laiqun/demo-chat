@@ -39,7 +39,7 @@ export default class NewClass extends cc.Component {
 
     // gate服连接成功，获取网关
     private svr_onOpen_gate() {
-        network.addHandler(cmd.gate_main_getCon, this.svr_getConBack, this);
+        network.addHandler(cmd.gate_main_getCon, this.svr_getConBack, this);//这里注册的时候，会将字符串替换为指令数组的index
         network.sendMsg(cmd.gate_main_getCon);
     }
     // gate服连接断开
